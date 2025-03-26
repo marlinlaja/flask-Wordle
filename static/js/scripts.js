@@ -436,11 +436,9 @@ function pressedEnter() {
 function pressedRightArrow() {
     if (!selected) return;
 
-    const x_val = parseInt(selected.id[2]) + 1;
+    const x_val = parseInt(selected.id[2]);
     if (x_val >= 0 && x_val <= 3) {
         selected = document.getElementById(`${current_row}-${x_val+1}`);
-    } else {
-        selected = null;
     }
     updateSelected();
 }
@@ -448,11 +446,9 @@ function pressedRightArrow() {
 function pressedLeftArrow() {
     if (!selected) return;
 
-    const x_val = parseInt(selected.id[2]) + 1; 
+    const x_val = parseInt(selected.id[2]); 
     if (x_val >= 1 && x_val <= 4) {
         selected = document.getElementById(`${current_row}-${x_val-1}`);
-    } else {
-        selected = null;
     }
     updateSelected();
 }
@@ -576,8 +572,10 @@ function shakeRow() {
 function tileInputAnimation(tile) {
     // Quick scale animation for key presses
     tile.style.transform = "scale(1)";
+    
     setTimeout(() => {
-        tile.style.transform = "scale(1.08)";
+        tile.style.transform = "scale(1.1)";
+        
         setTimeout(() => {
             tile.style.transform = "scale(1)";
         }, 50);

@@ -24,7 +24,7 @@
 html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 16px;
     font-weight: 700;
     line-height: 1em;
@@ -83,7 +83,7 @@ body {
 .logo {
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     line-height: 1em;
     display: flex;
 }
@@ -182,7 +182,7 @@ body {
     align-items: center;
     min-width: 2.5rem;
     height: 2.5rem;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     transition: all .1s;
     display: flex;
     transform: translate(0, -.2rem);
@@ -290,7 +290,6 @@ body {
     width: 30rem;
     display: flex;
     position: fixed;
-    bottom: 10%;
 }
 
 .popup-section {
@@ -313,7 +312,6 @@ body {
 /* ==================== */
 
 .text-heading {
-    text-transform: uppercase;
     font-size: 2.2rem;
     line-height: 1em;
 }
@@ -321,7 +319,7 @@ body {
 .text {
     font-size: .9rem;
     font-weight: 400;
-    line-height: 1.5em;
+    line-height: 1.3em;
 }
 
 .text.no-wrap {
@@ -449,19 +447,19 @@ body {
     border-radius: .3rem;
     justify-content: center;
     align-items: center;
-    height: 3rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-size: 1.5rem;
+    height: 2.5rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    font-size: 1.3rem;
     transition: all .1s;
     display: flex;
-    transform: translate(0, -.4rem);
-    box-shadow: 0 .4rem var(--green-dark)
+    transform: translate(0, -.3rem);
+    box-shadow: 0 .3rem var(--green-dark)
 }
 
 .key-reset:hover {
-    transform: translate(0, -.35rem);
-    box-shadow: 0 .35rem var(--green-dark)
+    transform: translate(0, -.25rem);
+    box-shadow: 0 .25rem var(--green-dark)
 }
 
 .key-reset:active {
