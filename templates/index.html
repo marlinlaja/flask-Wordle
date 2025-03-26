@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle</title>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Javascript -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar no-copy">
+        <div class="icon_button" onclick="openPopup()">
+            <img src="{{ url_for('static', filename='images/stats.svg') }}" alt="Stats">
+        </div>
+        <div class="logo">Wordle</div>
+        <div class="icon_button" onclick="window.open('https://github.com/marlinlaja/flask-Wordle')">
+            <img src="{{ url_for('static', filename='images/github.svg') }}" alt="GitHub">
+        </div>
+    </div>
+
+    <!-- Main Game Area -->
+    <div class="game no-copy">
+        <!-- Game Grid -->
+        <div class="grid">
+            {% for y in range(6) %}
+                {% for x in range(5) %}
+                    <div class="tile" id="{{ y }}-{{ x }}"></div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+
+        <!-- Keyboard -->
+        <div class="keyboard">
+            <div class="keyboard-row">
+                {% for key in ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'] %}
+                    <div class="key" id="{{ key }}">{{ key }}</div>
+                {% endfor %}
+            </div>
+            
+            <div class="keyboard-row">
+                {% for key in ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'] %}
+                    <div class="key" id="{{ key }}">{{ key }}</div>
+                {% endfor %}
+            </div>
+            
+            <div class="keyboard-row">
+                <div class="key special" id="special-enter">Send</div>
+                {% for key in ['Z', 'X', 'C', 'V', 'B', 'N', 'M'] %}
+                    <div class="key" id="{{ key }}">{{ key }}</div>
+                {% endfor %}
+                <div class="key special" id="special-backspace">Back</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Popup -->
+    <div class="overlay">
+        <div class="popup">
+            <!-- Header Section -->
+            <div class="popup-section header">
+                <div class="space-between fullwidth">
+                    <div class="text-heading" id="heading">STATS</div>
+                    <div class="icon_button no-copy" onclick="closePopup()">
+                        <img src="{{ url_for('static', filename='images/close.svg') }}" alt="Close">
+                    </div>
+                </div>
+                <div class="text" id="feedback">-</div>
+                <div class="key-reset no-copy" id="key-reset" onclick="resetGame();">Play again!</div>
+            </div>
+            
+            <!-- Stats Overview -->
+            <div class="popup-section">
+                <div class="space-between fullwidth">
+                    <div class="content-center">
+                        <div class="text-heading" id="games-total">0</div>
+                        <div class="text">Games<br>Played</div>
+                    </div>
+                    <div class="content-center">
+                        <div class="text-heading" id="win-percentage">0%</div>
+                        <div class="text">Win<br>Percentage</div>
+                    </div>
+                    <div class="content-center">
+                        <div class="text-heading" id="current-winstreak">0</div>
+                        <div class="text">Current<br>Winstreak</div>
+                    </div>
+                    <div class="content-center">
+                        <div class="text-heading" id="longest-winstreak">0</div>
+                        <div class="text">Longest<br>Winstreak</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Stats -->
+            <div class="popup-section">
+                <div class="space-between">
+                    <div class="average-wrapper">
+                        <div class="text bold" id="guesses-average">0.0</div>
+                    </div>
+                    <div class="text bold">Ø Guesses</div>
+                </div>
+
+                <div class="bar-chart">
+                    {% for i in range(6) %}
+                        <div class="space-between">
+                            <div class="text no-wrap">{{ i+1 }}. Guess</div>
+                            <div class="bar-container">
+                                <div class="bar" id="bar-{{i}}" style="width: 0%"></div>
+                            </div>
+                            <div class="text" id="bar-value-{{i}}">0</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
