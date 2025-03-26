@@ -113,7 +113,7 @@ body {
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(5, 1fr);
     justify-items: stretch;
-    height: 25rem;
+    height: 23rem;
     display: grid;
 }
 
