@@ -215,7 +215,7 @@ function processGameUpdate(was_valid) {
         if (was_valid || just_loaded) {
             selected = document.getElementById(`${current_row}-0`);
         }
-        updatecurrent_row();
+        updateCurrentRow();
         updateSelected();
     }
     
@@ -324,7 +324,7 @@ function updateKeyboardColors() {
     });
 }
 
-function updatecurrent_row() {
+function updateCurrentRow() {
     all_tiles.forEach(tile => tile.classList.remove('current_row'));
     document.querySelectorAll(`[id^="${current_row}-"]`).forEach(tile => {
         tile.classList.add('current_row');
