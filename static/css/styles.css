@@ -33,19 +33,26 @@ html {
 }
 
 /* Apply smaller font size when screen is less than 600px */
-@media (max-width: 600px) {
+@media (max-width: 1600px) {
+    html {
+      font-size: 1.15vw; /* Reduced font size */
+    }
+  }
+  
+
+/* Apply smaller font size when screen is less than 1200px */
+@media (max-width: 1200px) {
   html {
-    font-size: 14px; /* Reduced font size */
+    font-size: 2.5vw; /* Reduced font size */
   }
 }
 
-/* Apply smaller font size when screen is less than 400px */
-@media (max-width: 400px) {
+/* Apply smaller font size when screen is less than 600px */
+@media (max-width: 600px) {
     html {
-      font-size: 12px; /* Reduced font size */
+      font-size: 4vw; /* Reduced font size */
     }
   }
-
 body {
     flex-flow: column;
     justify-content: top;
@@ -96,7 +103,6 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
-    max-width: 1200px;
     padding: 1.5rem 0;
     display: flex;
 }
@@ -109,7 +115,6 @@ body {
 .grid {
     grid-column-gap: .3rem;
     grid-row-gap: .3rem;
-    border-radius: 10px;
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(5, 1fr);
     justify-items: stretch;
@@ -124,7 +129,7 @@ body {
     border-radius: .4rem;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    height: 100%;
     font-size: 2rem;
     display: flex;
     color: white;
@@ -160,12 +165,14 @@ body {
 /* ==================== */
 
 .keyboard {
-    grid-row-gap: .7rem;
+    grid-row-gap: .6rem;
     flex-flow: column;
     display: flex;
+    max-width: 98vw;
 }
 
 .keyboard-row {
+    max-width: 98vw;
     grid-column-gap: .3rem;
     grid-row-gap: .3rem;
     justify-content: center;
@@ -174,14 +181,15 @@ body {
 }
 
 .key {
+    aspect-ratio: 1;
     background-color: var(--key-light);
     box-shadow: 0 .2rem 0 0 var(--key-dark);
     cursor: pointer;
     border-radius: .3rem;
     justify-content: center;
     align-items: center;
-    min-width: 2.5rem;
-    height: 2.5rem;
+    max-width: 8vw;
+    height: 2.4rem;
     font-size: 1.3rem;
     transition: all .1s;
     display: flex;
@@ -190,28 +198,25 @@ body {
 
 /* Key states and interactions */
 .key:hover {
-    box-shadow: 0 0 0 0 var(--key-dark);
-    transform: translate(0);
+    filter: brightness(110%);
 }
 
 .key:active {
-    box-shadow: 0 -.2rem 0 0 var(--key-dark);
-    height: 2.3rem;
-    margin-top: .2rem;
-    padding-top: .18rem;
+    box-shadow: 0 0 0 0 var(--key-dark);
+    transform: translate(0);
+    filter: brightness(110%);
 }
 
 .key.active {
-    box-shadow: 0 -.1rem 0 0 var(--key-dark);
-    height: 2.4rem;
-    margin-top: .1rem;
-    padding-top: .095rem;
+    box-shadow: 0 0 0 0 var(--key-dark);
     transform: translate(0);
+    filter: brightness(110%);
 }
 
 .key.special {
     aspect-ratio: auto;
     width: 100%;
+    max-width: 13vw;
 }
 
 /* Key color variants */
@@ -220,16 +225,12 @@ body {
     box-shadow: 0 .2rem 0 0 var(--yellow-dark);
 }
 
-.key.yellow:hover {
+.key.yellow:active {
     box-shadow: 0 0 0 0 var(--yellow-dark);
 }
 
-.key.yellow:active {
-    box-shadow: 0 -.2rem 0 0 var(--yellow-dark);
-}
-
 .key.yellow.active {
-    box-shadow: 0 -.1rem 0 0 var(--yellow-dark);
+    box-shadow: 0 0 0 0 var(--yellow-dark);
 }
 
 .key.grey {
@@ -237,16 +238,12 @@ body {
     box-shadow: 0 .2rem 0 0 var(--grey-dark);
 }
 
-.key.grey:hover {
-    box-shadow: 0 0 0 0 var(--background);
-}
-
 .key.grey:active {
-    box-shadow: 0 -.2rem 0 0 var(--grey-dark);
+    box-shadow: 0 0 0 0 var(--grey-dark);
 }
 
 .key.grey.active {
-    box-shadow: 0 -.1rem 0 0 var(--grey-dark);
+    box-shadow: 0 0 0 0 var(--grey-dark);
 }
 
 .key.green {
@@ -254,16 +251,12 @@ body {
     box-shadow: 0 .2rem 0 0 var(--green-dark);
 }
 
-.key.green:hover {
+.key.green:active {
     box-shadow: 0 0 0 0 var(--green-dark);
 }
 
-.key.green:active {
-    box-shadow: 0 -.2rem 0 0 var(--green-dark);
-}
-
 .key.green.active {
-    box-shadow: 0 -.1rem 0 0 var(--green-dark);
+    box-shadow: 0 0 0 0 var(--green-dark);
 }
 
 /* ==================== */
@@ -288,6 +281,8 @@ body {
     border-radius: .5rem;
     flex-flow: column;
     width: 30rem;
+    max-width: 95vw;
+    max-height: 95vh;
     display: flex;
     position: fixed;
 }
@@ -451,15 +446,14 @@ body {
     padding-left: 0.8rem;
     padding-right: 0.8rem;
     font-size: 1.3rem;
-    transition: all .1s;
+    transition: all 0s linear;
     display: flex;
     transform: translate(0, -.3rem);
     box-shadow: 0 .3rem var(--green-dark)
 }
 
 .key-reset:hover {
-    transform: translate(0, -.25rem);
-    box-shadow: 0 .25rem var(--green-dark)
+    filter: brightness(110%);
 }
 
 .key-reset:active {
