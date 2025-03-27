@@ -1,3 +1,4 @@
 1. install python
 2. choose venv
 3. $python main.py
+![Uploading Preview.png…]()
