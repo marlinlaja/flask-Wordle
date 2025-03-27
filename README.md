@@ -13,7 +13,7 @@ Clone it via Git (installation needed)
 git clone https://github.com/your-username/your-repository.git
 cd your-repository
 ```
-Otherwise just Download it from Github and save it one your System.
+Otherwise just Download it from Github and save it on your System.
 <br></br>
 
 ### 3. Activate the Virtual Environment
