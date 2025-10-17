@@ -290,11 +290,11 @@ function updateUsedLetters() {
     
     matrix.forEach((row, y) => {
         row.slice(0, 5).forEach((letter, x) => {
-            const eval = eval_matrix[y][x];
+            const evaluate = eval_matrix[y][x];
             if (!letterMap.has(letter)) {
-                letterMap.set(letter, eval);
-            } else if (eval > letterMap.get(letter)) {
-                letterMap.set(letter, eval);
+                letterMap.set(letter, evaluate);
+            } else if (evaluate > letterMap.get(letter)) {
+                letterMap.set(letter, evaluate);
             }
         });
     });
@@ -393,6 +393,7 @@ function updatePopup() {
 // ======================================================================
 
 function pressedLetter(letter) {
+    if (has_won || game_over) return;
     if (!selected) {
         shakeRow();
     } else {
@@ -434,6 +435,7 @@ function pressedEnter() {
 }
 
 function pressedRightArrow() {
+    if (has_won || game_over) return;
     if (!selected) return;
 
     const x_val = parseInt(selected.id[2]);
@@ -444,6 +446,7 @@ function pressedRightArrow() {
 }
 
 function pressedLeftArrow() {
+    if (has_won || game_over) return;
     if (!selected) return;
 
     const x_val = parseInt(selected.id[2]); 
@@ -524,6 +527,7 @@ document.addEventListener('mousedown', (event) => {
         const key = document.querySelector('.key:hover');
         
         if (tile) {
+            if (has_won || game_over) return;
             selected = tile;
             updateSelected();
         } else if (key) {
