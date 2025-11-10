@@ -10,8 +10,7 @@ Download and install Python from the official website:
 ### 2. Clone the Repository
 Clone it via Git (installation needed)
 ```bash
-git clone https://github.com/your-username/your-repository.git
-cd your-repository
+git clone https://github.com/marlinlaja/flask-Wordle.git
 ```
 Otherwise just Download it from Github and save it on your System.
 <br></br>
