@@ -15,15 +15,32 @@ git clone https://github.com/marlinlaja/flask-Wordle.git
 Otherwise just Download it from Github and save it on your System.
 <br></br>
 
-### 3. Activate the Virtual Environment
-This project includes a pre-configured venv folder. Activate it with:
+### 3. Install Flask
+Make sure to have Flask installed, either create a virtual environment or install it on your system.
 ```bash
-Windows: venv\Scripts\activate
+# 1️⃣ Create a virtual environment named "venv"
+# macOS / Linux:
+python3 -m venv venv
+
+# Windows:
+python -m venv venv
+
+
+# 2️⃣ Activate the virtual environment
+# macOS / Linux:
+source venv/bin/activate
+
+# Windows (PowerShell or CMD):
+venv\Scripts\activate
+
+
+# 3️⃣ (Optional) Upgrade pip to the latest version
+pip install --upgrade pip
+
+
+# 4️⃣ Install Flask inside the virtual environment
+pip install Flask
 ```
-```bash
-macOS/Linux: source venv/bin/activate
-``` 
-You can also create you own, make sure to install Flask.
 <br></br>
 
 ### 4. Run the Program
