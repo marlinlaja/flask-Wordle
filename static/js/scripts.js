@@ -1,3 +1,14 @@
+// Dynamically detect the base path where this app is mounted
+const BASE_PATH = window.location.pathname.split('/').slice(0,2).join('') || '';
+
+// Helper function to generate API URLs
+function apiURL(path) {
+    // Ensure leading slash
+    return `${window.origin}${BASE_PATH}${path.startsWith('/') ? path : '/' + path}`;
+}
+
+
+
 // ======================================================================
 //  API FETCH FUNCTIONS
 // ======================================================================
@@ -24,7 +35,7 @@ function submitGuess() {
     }
 
     // Send guess to server
-    fetch(`${window.origin}/api/player-guess`, {
+    fetch(apiURL('/api/player-guess'), {
         method: 'POST',
         body: JSON.stringify(guess),
         headers: {
@@ -50,7 +61,7 @@ function submitGuess() {
  * Fetches current game state from server
  */
 function fetchGame() {
-    fetch(`${window.origin}/api/sync-game`, {
+    fetch(apiURL('/api/sync-game'), {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -74,7 +85,7 @@ function fetchGame() {
  * Fetches player statistics from server
  */
 function fetchStats() {
-    fetch(`${window.origin}/api/sync-stats`, {
+    fetch(apiURL('/api/sync-stats'), {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -98,7 +109,7 @@ function fetchStats() {
  * Resets the game state on server
  */
 function resetGame() {
-    fetch(`${window.origin}/api/reset-game`, {
+    fetch(apiURL('/api/reset-game'), {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

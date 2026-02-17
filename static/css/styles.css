@@ -124,7 +124,7 @@ body {
     align-items: center;
     font-size: 2rem;
     display: flex;
-    height: 100%;
+    width: 100%;
     color: white;
     transition: transform 0.1s ease, color 0.2s ease;
     transform: rotateY(0deg);
