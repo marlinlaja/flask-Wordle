@@ -116,7 +116,7 @@ body {
 }
 
 .tile {
-    aspect-ratio: 1;
+    aspect-ratio: 1 / 1;
     border: .15rem solid var(--grey-dark);
     background-color: var(--background);
     border-radius: .4rem;
@@ -124,6 +124,7 @@ body {
     align-items: center;
     font-size: 2rem;
     display: flex;
+    height: 100%;
     color: white;
     transition: transform 0.1s ease, color 0.2s ease;
     transform: rotateY(0deg);
