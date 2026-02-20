@@ -1,5 +1,5 @@
 function apiURL(endpoint) {
-    const BASE_URL = window.location.origin + window.location.pathname.replace(/\/$/, '');
+    const BASE_URL = window.location.origin; //+ window.location.pathname.replace(/\/$/, '');
     return `${BASE_URL}${endpoint}`;
 }
 
