@@ -1,11 +1,14 @@
 import random
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 # ======================================================================
 #  WORD SELECTION - Randomly selects a target word from file
 # ======================================================================
 def random_word():
-    with open('dictionary/game_list.txt', 'r') as file:
+    with open(os.path.join(BASE_DIR, 'dictionary', 'game_list.txt'), 'r') as file:
         # Initialize variables
         word = None
         count = 0
@@ -23,7 +26,7 @@ def random_word():
 #  DICTIONARY CHECK - Validates if word exists in dictionary
 # ======================================================================
 def is_in_dictionary(guess):
-    with open('dictionary/word_list.txt', 'r') as file:
+    with open(os.path.join(BASE_DIR, 'dictionary', 'word_list.txt'), 'r') as file:
         for line in file:
             if line.strip() == guess:
                 return True
