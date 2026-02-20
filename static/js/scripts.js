@@ -1,12 +1,7 @@
-// Dynamically detect the base path where this app is mounted
-const BASE_PATH = window.location.pathname.split('/').slice(0,2).join('') || '';
-
-// Helper function to generate API URLs
-function apiURL(path) {
-    // Ensure leading slash
-    return `${window.origin}${BASE_PATH}${path.startsWith('/') ? path : '/' + path}`;
+function apiURL(endpoint) {
+    const BASE_URL = window.location.origin;
+    return `${BASE_URL}${endpoint}`;
 }
-
 
 
 // ======================================================================
