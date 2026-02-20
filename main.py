@@ -30,8 +30,6 @@ def index():
 # ======================================================================
 @app.route('/api/player-guess', methods=['POST'])
 def player_guess():
-        
-    print('Received guess request')
 
     if not request.is_json:
         abort(403)
