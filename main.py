@@ -28,7 +28,7 @@ def index():
 # ======================================================================
 #  MAKE GUESS - Processes player's word guess
 # ======================================================================
-@app.route('/api/player-guess', methods=['POST'])
+@app.route('/wordle/api/player-guess', methods=['POST'])
 def player_guess():
     
     # Only accept JSON requests
