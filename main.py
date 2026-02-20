@@ -4,7 +4,6 @@ from functions import *
 
 
 app = Flask(__name__)
-app.config['APPLICATION_ROOT'] = '/wordle'
 app.secret_key = 'THIS_IS_A_VERY_SECRET_KEY'
 
 

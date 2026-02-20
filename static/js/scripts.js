@@ -80,6 +80,7 @@ function fetchGame() {
  * Fetches player statistics from server
  */
 function fetchStats() {
+    console.log('Fetching stats from server...');
     fetch(apiURL('/api/sync-stats'), {
         headers: {
             'Content-Type': 'application/json'
