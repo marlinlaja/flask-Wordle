@@ -30,20 +30,24 @@ def index():
 # ======================================================================
 @app.route('/api/player-guess', methods=['POST'])
 def player_guess():
-    
-    print('Received guess request')
+    try:
+        print('Received guess request')
 
-    # Only accept JSON requests
-    if not request.is_json:
-        abort(403)  # Forbidden
+        if not request.is_json:
+            abort(403)
 
-    # Get the guessed word from the request
-    guess = request.get_json()
-    
-    # Process the guess (update game state)
-    process_player_guess(session, guess)
+        guess = request.get_json()
+        print("GUESS DATA:", guess)
 
-    return sync_game(is_internal_call=True)
+        process_player_guess(session, guess)
+
+        return sync_game(is_internal_call=True)
+
+    except Exception as e:
+        import traceback
+        print("❌ ERROR IN player_guess:")
+        traceback.print_exc()
+        abort(300)
 
 
 # ======================================================================
