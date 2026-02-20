@@ -30,6 +30,7 @@ function submitGuess() {
     }
 
     // Send guess to server
+    console.log('Submitting guess to server:', guess);
     fetch(apiURL('/api/player-guess'), {
         method: 'POST',
         body: JSON.stringify(guess),
@@ -56,6 +57,7 @@ function submitGuess() {
  * Fetches current game state from server
  */
 function fetchGame() {
+    console.log('Fetching game state from server...');
     fetch(apiURL('/api/sync-game'), {
         headers: {
             'Content-Type': 'application/json'
