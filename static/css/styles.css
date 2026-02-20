@@ -117,7 +117,7 @@ body {
 }
 
 .tile {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 5 / 6;
     border: .15rem solid var(--grey-dark);
     background-color: var(--background);
     border-radius: .4rem;
