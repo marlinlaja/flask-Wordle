@@ -4,6 +4,7 @@ from functions import *
 
 
 app = Flask(__name__)
+app.config['APPLICATION_ROOT'] = '/wordle'
 app.secret_key = 'THIS_IS_A_VERY_SECRET_KEY'
 
 
@@ -30,24 +31,18 @@ def index():
 # ======================================================================
 @app.route('/api/player-guess', methods=['POST'])
 def player_guess():
-    try:
-        print('Received guess request')
+        
+    print('Received guess request')
 
-        if not request.is_json:
-            abort(403)
+    if not request.is_json:
+        abort(403)
 
-        guess = request.get_json()
-        print("GUESS DATA:", guess)
+    guess = request.get_json()
+    print("GUESS DATA:", guess)
 
-        process_player_guess(session, guess)
+    process_player_guess(session, guess)
 
-        return sync_game(is_internal_call=True)
-
-    except Exception as e:
-        import traceback
-        print("❌ ERROR IN player_guess:")
-        traceback.print_exc()
-        abort(300)
+    return sync_game(is_internal_call=True)
 
 
 # ======================================================================
