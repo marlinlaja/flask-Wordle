@@ -49,7 +49,7 @@ def player_guess():
 # ======================================================================
 #  SYNC GAMESTATE - Returns current game state to frontend
 # ======================================================================
-@app.route('/api/sync-game', methods=['GET'])
+@app.route('wordle/api/sync-game', methods=['GET'])
 def sync_game(is_internal_call=False):
     
     # Only accept JSON requests if called externally
