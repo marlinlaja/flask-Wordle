@@ -4,6 +4,7 @@ from functions import *
 
 
 app = Flask(__name__)
+app.config['APPLICATION_ROOT'] = '/wordle'
 app.secret_key = 'THIS_IS_A_VERY_SECRET_KEY'
 
 
@@ -32,7 +33,7 @@ def index():
 def player_guess():
     
     print('Received guess request')
-    
+
     # Only accept JSON requests
     if not request.is_json:
         abort(403)  # Forbidden
