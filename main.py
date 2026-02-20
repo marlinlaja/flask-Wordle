@@ -28,8 +28,10 @@ def index():
 # ======================================================================
 #  MAKE GUESS - Processes player's word guess
 # ======================================================================
-@app.route('/wordle/api/player-guess', methods=['POST'])
+@app.route('/api/player-guess', methods=['POST'])
 def player_guess():
+    
+    print('Received guess request')
     
     # Only accept JSON requests
     if not request.is_json:
