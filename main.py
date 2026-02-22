@@ -1,4 +1,4 @@
-# marlin.laja@gmx.de - 03/2025
+# marlin laja - 03/2025
 from flask import Flask, request, jsonify, render_template, abort, session
 from functions import *
 
